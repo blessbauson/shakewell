@@ -30,6 +30,14 @@ class VouchersController extends Controller
 {
 
     use CodeGeneration;
+    public $voucher_char_count;
+
+    
+    public function __construct()
+    {
+        $this->voucher_char_count = config('api.voucher_chars_count');
+    }
+
 
     public function index(Request $request)
     {
@@ -57,7 +65,7 @@ class VouchersController extends Controller
         if($user){
             if(isset($user->vouchers_count) && $user->vouchers_count < $max_voucher_allowed){
                 //generate voucher code
-                $voucher_code = self::generateVoucherCode();
+                $voucher_code = self::generateVoucherCode($this->voucher_char_count);
                 $voucher_data = [
                     'user_id'           => $user->id,
                     'code'              => $voucher_code,

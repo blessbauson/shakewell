@@ -26,6 +26,14 @@ use Carbon\Carbon;
 class UsersController extends Controller
 {
     use CodeGeneration;
+    public $voucher_char_count;
+
+    
+    public function __construct()
+    {
+        $this->voucher_char_count = config('api.voucher_chars_count');
+    }
+
 
     public function index(Request $request)
     {
@@ -58,7 +66,7 @@ class UsersController extends Controller
         if($user && !empty($user->id)){
 
             //generate voucher code for every new creation of user
-            $voucher_code = self::generateVoucherCode();
+            $voucher_code = self::generateVoucherCode($this->voucher_char_count);
             $voucher_data = [
                 'user_id'           => $user->id,
                 'code'              => $voucher_code,

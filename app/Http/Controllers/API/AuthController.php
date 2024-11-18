@@ -30,11 +30,13 @@ class AuthController extends Controller
 {
     use CodeGeneration;
     protected $emailService;
+    public $voucher_char_count;
 
 
     public function __construct(EmailService $emailService)
     {
         $this->emailService = $emailService;
+        $this->voucher_char_count = config('api.voucher_chars_count');
     }
 
 
@@ -78,7 +80,7 @@ class AuthController extends Controller
             if($user && !empty($user->id)){
 
                 //generate voucher code
-                $voucher_code = self::generateVoucherCode();
+                $voucher_code = self::generateVoucherCode($this->voucher_char_count);
                 $voucher_data = [
                     'user_id'           => $user->id,
                     'code'              => $voucher_code,
@@ -134,7 +136,7 @@ class AuthController extends Controller
         if($user && !empty($user->id)){
 
             //generate voucher code
-            $voucher_code = self::generateVoucherCode();
+            $voucher_code = self::generateVoucherCode($this->voucher_char_count);
           
             //send email
             if(!empty($user->email)){
