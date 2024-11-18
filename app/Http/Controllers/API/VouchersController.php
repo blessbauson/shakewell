@@ -78,7 +78,7 @@ class VouchersController extends Controller
                 return response(['status' => 'Success', 'message' => 'Voucher generated', 'voucher' => $voucher_code, 'user' => $user], 200);
             
             } else {
-                return response(['status' => 'Error', 'message' => 'Max voucher count exceeded', 'user' => ''], 400);
+                return response(['status' => 'Error', 'message' => 'Max voucher count exceeded', 'user' => $user], 400);
             }
 
         } else {
