@@ -83,7 +83,7 @@ class AuthController extends Controller
                 if(!empty($user->email)){
                     $email_array = [
                         'subject'           => "Welcome Shakewell User",
-                        'body'              => "Hi ".$user->first_name." ".$user->last_name.", <br/><br/> Your voucher code is <b>".$voucher_code."</b>.",
+                        'body'              => "Your voucher code is <b>".$voucher_code."</b>.",
                         'email'             => $user->email,
                         'recipient_name'    => $user->first_name." ".$user->last_name
                     ];
