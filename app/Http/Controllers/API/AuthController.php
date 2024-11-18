@@ -9,21 +9,12 @@ use App\Models\Voucher;
 use App\Http\Requests\API\LoginRequest;
 use App\Http\Requests\API\RegisterRequest;
 
-use App\Http\Resources\API\ApiResource;
-use Laravel\Passport\HasApiTokens;
-
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-
 use App\Traits\CodeGeneration;
 use App\Services\EmailService;
-use App\Mail\NotificationMail;
 
 use Carbon\Carbon;
-use DB;
 use Hash;
 
 class AuthController extends Controller
@@ -48,7 +39,6 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $params     = $request->all();
         $username   = $request->username;
         $password   = $request->password;
 

@@ -12,15 +12,11 @@ use App\Http\Resources\API\ApiResource;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
 use App\Traits\CodeGeneration;
-
 use Carbon\Carbon;
 
 class UsersController extends Controller
@@ -28,7 +24,7 @@ class UsersController extends Controller
     use CodeGeneration;
     public $voucher_char_count;
 
-    
+
     public function __construct()
     {
         $this->voucher_char_count = config('api.voucher_chars_count');

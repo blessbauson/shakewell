@@ -10,15 +10,10 @@ use App\Models\Voucher;
 use App\Http\Requests\API\StoreVoucherRequest;
 use App\Http\Requests\API\UpdateVoucherRequest;
 use App\Http\Requests\API\GenerateVoucherRequest;
-
 use App\Http\Resources\API\ApiResource;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 

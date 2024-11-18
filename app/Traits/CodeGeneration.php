@@ -4,7 +4,6 @@ namespace App\Traits;
 
 use Carbon\Carbon;
 use App\Models\Voucher;
-use DB;
 
 trait CodeGeneration
 {
